@@ -1,0 +1,32 @@
+<head>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js' type='text/javascript'></script>
+</head>
+
+
+
+
+
+
+設置したい場所のクラスかIDを下から９行目の　var insのところで指定する
+
+<b:if cond='data:blog.isMobile'>
+<script>
+var url = location.href; //現在のURLを取得
+if (url.match(/html\?m=1$/)) {
+    var canonicalUrl = url.toString().replace('.html?m=1', '.html'); //mobile用のURL（?m=1をリプレイス）
+} else {
+    var canonicalUrl = url //レスポンシブデザインなどmobileテンプレートを使用していない場合
+}
+var title = encodeURIComponent(document.title); //タイトルを取得
+ 
+(function () {
+    $(document).ready(function () {
+        var ins = $('.sparks'); //class="post-footer"の部分を選択
+        var add = '<a href="line://msg/text/' + title + ' ' + canonicalUrl + '" target="_blank">send to line</a>';
+        for (i = 0; i < ins.length; i++) {
+            $(ins).eq(i).after(add); //指定した部分の後にタグを生成
+        }
+    })
+}());
+</script>
+</b:if>
