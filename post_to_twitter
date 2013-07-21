@@ -1,7 +1,0 @@
-
-<script>
-tword = 'post to twitter';
-tword = encodeURIComponent(tword);
-turl = 'https://github.com/syuntatata/web_func';
-document.write('<a href="http://twitter.com/share?url='+turl+'&text='+tword+'" target="_blank">Twitterで共有</a>');
-</script>
